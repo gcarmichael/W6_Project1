@@ -1,5 +1,11 @@
 class User < ActiveRecord::Base
   mount_uploader :avatar, UserAvatarUploader
+
+  has_many :friends, :class_name => 'Friend', :foreign_key => 'user_2_id'
+  has_many :photos
+  has_many :comments
+  has_many :messages
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
