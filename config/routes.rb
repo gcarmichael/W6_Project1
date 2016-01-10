@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'photo/index'
+
   devise_for :users
   get 'photos/index'
   get 'users/index'
