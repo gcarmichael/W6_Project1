@@ -6,10 +6,5 @@ class PhotosController < ApplicationController
     @photos = Photo.all
     @users = User.all
   end
-
- # For Friends controllers
- # def index
-  #  @friends = User.friendslist(current_user.id)
- # end
   
 end

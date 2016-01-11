@@ -4,8 +4,8 @@ class Ability
   def initialize(user)
     user ||= User.new
 
-        can :read, Photo
-        can :create, Photo
+        can :read, [Photo, Friend]
+        can :create, [Photo, Friend]
  
         can [:update, :destroy], Photo do |photo|
             photo.user_id == user.id
