@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
+  devise_for :users, :controllers => { registrations: 'registrations' }
+
   get 'photo/index'
 
-  devise_for :users
   get 'photos/index'
   get 'users/index'
   get 'friends/index'

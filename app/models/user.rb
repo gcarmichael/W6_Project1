@@ -18,7 +18,12 @@ class User < ActiveRecord::Base
 
   def friendslist(id)
     # Find friendships where self_id = user.id
-    # Find friendsships where friend_id = user.id
+    @friends = self.friendships(self_id = id)
+    # Find friendships where friend_id = user.id
+    @inverse_friends = self.inverse_friendships(friend_id = id)
+    # @all_friends =  concatenate @friends @inverse_friends
+    @all_friends = [@friends, @inverse_friends]
+    return @all_friends
   end
 
 end
