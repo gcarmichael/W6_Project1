@@ -4,10 +4,12 @@ class Ability
   def initialize(user)
     user ||= User.new
 
-        can :read, [Photo, Comment]
-        can :create, [Photo, Comment]
-        can :update, [Photo, Comment] do |owner|
-            owner.user == user
+        can :read, Photo
+        can :create, Photo
+ 
+        can [:update, :destroy], Photo do |photo|
+            photo.user_id == user.id
+            # Add Comments later
         end
 
     # Define abilities for the passed in user here. For example:

@@ -1,0 +1,33 @@
+<h1>Photos</h1>
+<p>
+  <% @photos.each do |photo| %>
+
+  <ul>
+    <li><%= photo.title %>
+      <br>
+      <br>
+      <% if photo.image %>
+      Image:<br>
+      <%= link_to image_tag(photo.image.thumb.url) %>
+      <br>
+      <% end %>
+
+      <%= photo.description if photo.description %></li>
+    </ul>
+
+    <% if can? :update, photo %>
+    <%= link_to("Edit Photo Details", edit_photo_path(photo)) %>
+    <% else %>
+    This is <%= @users.find(photo.user_id).name %>'s photo.
+    <% end %>
+
+    <br>
+
+    <% if can? :destroy, photo %>
+    <%= link_to("Delete Game", photo_path(photo), method: :delete, data: {confirm: "Do you really want to delete this photo?"}) %>
+    <% end %>
+
+    <br>
+    <hr>
+    <% end %>
+  </p>
