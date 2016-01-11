@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  mount_uploader :avatar, UserAvatarUploader
 
   has_many :friends, :class_name => 'Friend', :foreign_key => 'friend_id'
   has_one :self, :class_name => 'Friend', :foreign_key => 'self_id'
