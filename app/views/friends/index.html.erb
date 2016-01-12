@@ -14,7 +14,7 @@
 
     <% if f.friend.avatar %>
     Avatar:<br>
-    <%= link_to image_tag(f.friend.avatar.page.url), friend_path(f) %>
+    <%= image_tag(f.friend.avatar.page.url, alt: 'No Image') %>
     <br>
     <% end %>
 

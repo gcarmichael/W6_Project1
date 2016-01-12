@@ -1,0 +1,34 @@
+<ul>
+    <li>Photo Title:
+    <br>
+    <%= @photo.title %>
+      <br>
+      <br>
+      <% if @photo.image %>
+      Image:<br>
+      <%= image_tag(@photo.image.medium, alt: 'No Image') %>
+      <br>
+      <% end %>
+
+      <br>
+
+      Description:
+      <br>
+      <%= @photo.description if @photo.description %></li>
+    </ul>
+
+    <% if can? :update, @photo %>
+    <%= link_to("Edit Your Photo Details", edit_photo_path(@photo)) %>
+    <% else %>
+    This is <%= @users.find(@photo.user_id).name %>'s photo.
+    <% end %>
+
+    <br>
+
+    <% if can? :destroy, @photo %>
+    <%= link_to("Delete Your Photo", photo_path(@photo), method: :delete, data: {confirm: "Do you really want to delete this photo?"}) %>
+    <% end %>
+
+    <br>
+    <hr>
+  </p>

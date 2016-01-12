@@ -8,7 +8,7 @@
       <br>
       <% if photo.image %>
       Image:<br>
-      <%= link_to image_tag(photo.image.thumb.url), photo_path(photo) %>
+      <%= link_to image_tag(photo.image.thumb.url, alt: 'No Image'), photo_path(photo) %>
       <br>
       <% end %>
 
