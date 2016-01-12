@@ -2,21 +2,27 @@
 <p>
 
   <% @friends.each do |f| %>
-
   <ul>
-    <li><%= f.friend.name %>
-      <br>
-      <% if f.friend.avatar %>
-      Avatar:<br>
-      <%= link_to image_tag(f.friend.avatar.page.url), friend_path(f) %>
-      <br>
-      <% end %>
 
-      Job: <%= f.friend.job if f.friend.job %></li>
-      Location: <%= f.friend.location if f.friend.location %></li>
-    </ul>
-
+    <% if f.friend_id == current_user.id %>
+    <li><%= @users.find(f.self_id).name %></li>
     <br>
-    <hr>
+    <% else %>
+    <li><%= @users.find(f.friend_id).name %></li>
+    <br>
     <% end %>
-  </p>
+
+    <% if f.friend.avatar %>
+    Avatar:<br>
+    <%= link_to image_tag(f.friend.avatar.page.url), friend_path(f) %>
+    <br>
+    <% end %>
+
+    Job: <%= f.friend.job if f.friend.job %></li>
+    Location: <%= f.friend.location if f.friend.location %></li>
+  </ul>
+
+  <br>
+  <hr>
+  <% end %>
+</p>
