@@ -18,6 +18,7 @@
    background-color: rgb(38, 45, 66);
    height: 65px;
    line-height: 65px;
+   padding-bottom: 5px;
  }
 
  nav ul {
@@ -56,6 +57,12 @@
 
  .login {
    float: left;
+   line-height: 65px;
+   height: 65px;
+ }
+
+ .login a {
+   color: white;
  }
 
  .login a:visited {

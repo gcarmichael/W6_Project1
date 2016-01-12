@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   mount_uploader :avatar, UserAvatarUploader
 
+  validates :friendslist, uniqueness: true
+
   has_many :friendships, :class_name => 'Friend', :foreign_key => 'self_id'
   has_many :inverse_friendships, :class_name => 'Friend', :foreign_key => 'friend_id'
   has_many :photos

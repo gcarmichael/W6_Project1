@@ -4,25 +4,39 @@
   <% @friends.each do |f| %>
   <ul>
 
+    <% #unless @users.friendship.self_id == @user.inverse_friendship.friend_id %>
+
     <% if f.friend_id == current_user.id %>
     <li><%= @users.find(f.self_id).name %></li>
     <br>
-    <% else %>
-    <li><%= @users.find(f.friend_id).name %></li>
-    <br>
-    <% end %>
+    <li>Avatar:
+      <br>
+      <%= image_tag(@users.find(f.self_id).avatar.page.url, alt: 'No Image') %></li>
+      <br>
 
-    <% if f.friend.avatar %>
-    Avatar:<br>
-    <%= image_tag(f.friend.avatar.page.url, alt: 'No Image') %>
-    <br>
-    <% end %>
+      <li>Job: <%= @users.find(f.self_id).job %></li>
+      <br>
+      <li>Location: <%= @users.find(f.self_id).location %></li>
 
-    Job: <%= f.friend.job if f.friend.job %></li>
-    Location: <%= f.friend.location if f.friend.location %></li>
-  </ul>
+      <% else %>
 
-  <br>
-  <hr>
-  <% end %>
-</p>
+      <li><%= @users.find(f.friend_id).name %></li>
+      <br>
+
+      <li>Avatar:
+        <br>
+        <%= image_tag(@users.find(f.friend_id).avatar.page, alt: 'No Image') %></li>
+        <br>
+
+        <li>Job: <%= @users.find(f.friend_id).job %></li>
+        <br>
+        <li>Location: <%= @users.find(f.friend_id).location %></li>
+        <% end %>
+        
+      </ul>
+
+      <br>
+      <hr>
+      <% #end %>
+      <% end %>
+    </p>
