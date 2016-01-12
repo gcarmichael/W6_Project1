@@ -1,0 +1,35 @@
+<h1>List of Users</h1>
+<p>
+
+  <% @users.each do |u| %>
+  <ul>
+  <% unless u.name == current_user.name %>
+
+    <li><%= u.name %></li>
+    <br>
+    <li>Avatar:
+      <br>
+      <%= image_tag(u.avatar.thumb.url, alt: 'No Image') %></li>
+      <br>
+
+      <li>Job: <%= u.job %></li>
+      <br>
+      <li>Location: <%= u.location %></li>
+      <br>
+
+      <% if @friends.any?{|f| f.self_id == u.id || f.friend_id == u.id} %>
+      <!-- Thanks Beth! -->
+      You and <%= u.name %> are already friends.
+      <br>
+
+      <% else %>
+
+      <%= link_to("Add this person as a friend", friends_path(friend_id: u.id), :method => :post) %>
+
+      <% end %>
+
+    </ul>
+    <hr>
+    <% end %>
+    <% end %>
+  </p>

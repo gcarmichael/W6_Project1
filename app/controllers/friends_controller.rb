@@ -10,4 +10,12 @@ class FriendsController < ApplicationController
     # @friends = Friend.where('friend_id=? OR self_id=?', current_user.id, current_user.id)
   end
 
+  def create
+    @friendship = Friend.new
+    @friendship.friend_id = params[:friend_id]
+    @friendship.self_id = current_user.id
+    @friendship.save
+    redirect_to(friends_index_path)
+  end
+
 end
