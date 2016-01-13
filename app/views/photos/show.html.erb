@@ -1,18 +1,13 @@
 <ul>
-    <li>Photo Title:
-    <br>
-    <%= @photo.title %>
+    <li>Photo Title: <%= @photo.title %>
       <br>
       <br>
-      <% if @photo.image %>
-      Image:<br>
       <%= image_tag(@photo.image.medium, alt: 'No Image') %>
       <br>
-      <% end %>
-
       <br>
 
       Description:
+      <br>
       <br>
       <%= @photo.description if @photo.description %></li>
     </ul>
@@ -21,6 +16,7 @@
     <%= link_to("Edit Your Photo Details", edit_photo_path(@photo)) %>
     <% else %>
     This is <%= @users.find(@photo.user_id).name %>'s photo.
+    <%= image_tag(@users.find(@photo.user_id).avatar.thumb.url) %>
     <% end %>
 
     <br>

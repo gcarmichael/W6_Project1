@@ -10,6 +10,7 @@
 <body>
 
   <nav>
+  <% if current_user %>
   <%= image_tag(current_user.avatar.thumb) %>
     <div class="go-left">
       <div class="logo">
@@ -25,6 +26,7 @@
           <% end %>
         </div>
       </div>
+      <% end %>
 
       <div class="go-right">
         <ul>

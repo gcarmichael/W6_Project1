@@ -14,6 +14,8 @@
     <%= link_to("Edit Your Photo Details", edit_photo_path(photo)) %>
     <% else %>
     This is <%= @users.find(photo.user_id).name %>'s photo.
+    &emsp;&emsp;&emsp;&emsp;
+    <%= image_tag(@users.find(photo.user_id).avatar.thumb.url) %>
     <% end %>
 
     <br>
