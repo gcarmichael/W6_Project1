@@ -4,14 +4,11 @@ class FriendsController < ApplicationController
 
   def index
     @photos = Photo.all
-    #@users = User.all
     @users = User.order(name: :asc)
-    @friends = current_user.friendslist(current_user.id)
 
-    @sorted = @friends.sort_by {|f| User.display_name(f.friend_id, f.self_id, current_user, f.friend) }
+    friends = current_user.friendslist(current_user.id)
+    @sorted = friends.sort_by {|f| f.self.display_name(current_user, f.friend) }
     
-
-    # binding.pry
     # @friends = Friend.where('friend_id=? OR self_id=?', current_user.id, current_user.id)
   end
 

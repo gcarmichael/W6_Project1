@@ -28,19 +28,19 @@ class User < ActiveRecord::Base
     return @all_friends
   end
 
-  def self.display_name(friend_id, self_id, current_user,friend)
-    #current user id (logged in person)
-    #compare with the friend_id and self_id
-    #whcihever it matches, take the opposite
+  def display_name(current_user,friend)
+    # current user id (logged in person)
+    # compare with the friend_id and self_id
+    # whichever it matches, take the opposite
     result = ""
     compare_id = current_user.id
-    same_as_friend = compare_id == friend_id
-    same_as_self = compare_id == self_id
-    #binding.pry
+    same_as_friend = compare_id == friend.id
+    same_as_self = compare_id == id
+    # VAL IS GOD
     if(same_as_self)
       result = friend.name
     else
-      result = User.find(self_id).name
+      result = name
     end
 
   end
