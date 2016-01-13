@@ -55,7 +55,7 @@
    background-color: rebeccapurple;
  }*/
 
- .login {
+ .go-left {
    float: left;
    line-height: 65px;
    height: 65px;
@@ -69,7 +69,7 @@
    color: white;
  }
 
- .links {
+ .go-right {
    float: right;
  }
 
@@ -79,4 +79,96 @@
    font-weight: 600;
    margin-left: 20px;
    /*line-height: 65px;*/
+ }
+
+ /* GRID FRAMEWORK */
+
+ .container {
+   width: 70%;
+   margin: 0 auto;
+   /*Automatically centres.*/
+ }
+
+ .row {
+   display: block;
+   margin: 0 -10px;
+ }
+
+ .grid {
+   display: inline-block;
+   vertical-align: top;
+   /*Inline-block automatically sets vertical align to bottom by default.*/
+   margin-right: -4px;
+   /*Inline-block has a 4px margin on the right side, so will push grid combinations that hit 100% onto a new line. Manually removing this margin will let them take up the entire line. Even separating the div tags in the html adds whitespace.*/
+   padding: 0 10px;
+   box-sizing: border-box;
+   /* Changes how the element box operates: contains everything within this element. Makes the two 10px padding part of the 50% width specified by the class (grid 6). Maintains the padding and margin but eats into the width rather than adding it on top (i.e. 50% + padding + margin). */
+ }
+
+ .grid-1 {
+   width: 8.333333%;
+ }
+
+ .grid-2 {
+   width: 16.666666%;
+ }
+
+ .grid-3 {
+   width: 25%;
+ }
+
+ .grid-4 {
+   width: 33.333333%;
+ }
+
+ .grid-5 {
+   width: 41.666666%;
+ }
+
+ .grid-6 {
+   width: 50%;
+ }
+ .grid-7 {
+   width: 58.333333%;
+ }
+ .grid-8 {
+   width: 66.666666%;
+ }
+ .grid-9 {
+   width: 75%;
+ }
+ .grid-10 {
+   width: 83.333333%;
+ }
+ .grid-11 {
+   width: 91.666666%;
+ }
+ .grid-12 {
+   width: 100%;
+ }
+
+ /* PANELS */
+
+ .panel {
+   margin-bottom: 15px;
+   background-color: white;
+ }
+
+ .panel-heading {
+   padding: 15px 20px;
+   font-size: 26px;
+   color: white;
+ }
+
+ .panel-primary .panel-heading {
+   background-color: rgb(51,188,184);
+ }
+
+ .panel-body {
+   padding: 15px 20px;
+ }
+
+ .panel-footer {
+   padding: 8px 20px;
+   background-color: rgb(241,251,251);
  }

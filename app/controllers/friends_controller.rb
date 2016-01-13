@@ -7,6 +7,7 @@ class FriendsController < ApplicationController
     @users = User.order(name: :asc)
 
     friends = current_user.friendslist(current_user.id)
+
     @sorted = friends.sort_by {|f| f.self.display_name(current_user, f.friend) }
     
     # @friends = Friend.where('friend_id=? OR self_id=?', current_user.id, current_user.id)

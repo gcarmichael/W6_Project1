@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Project1</title>
+  <%= stylesheet_link_tag    'normalize', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,7 +10,7 @@
 <body>
 
   <nav>
-    <div class="login">
+    <div class="go-left">
       <div class="logo">
         <% if current_user %>
         <%= image_tag(current_user.avatar.thumb) %>
@@ -23,7 +24,7 @@
       </div>
     </div>
 
-    <div class="links">
+    <div class="go-right">
       <ul>
         <li> <%= link_to 'View All Users', users_index_path %> </li>
         <li> <%= link_to 'See Your Friends', friends_index_path %> </li>
