@@ -2,7 +2,7 @@
 <p>
   <% @sorted.each do |f| %>
   <ul>
-
+  <!-- VAL MADE FUN OF ME -->
     <% if f.friend_id == current_user.id %>
     <li><%= @users.find(f.self_id).name %></li>
     <br>
@@ -34,6 +34,5 @@
 
       <br>
       <hr>
-      <% #end %>
       <% end %>
     </p>

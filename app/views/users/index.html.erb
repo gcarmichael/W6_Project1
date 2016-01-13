@@ -2,14 +2,14 @@
 <p>
 
   <% @users.each do |u| %>
-  <ul>
-  <% unless u.id == current_user.id %>
+  <div class="grid grid-4">
+    <ul>
+      <% unless u.id == current_user.id %>
 
-    <li><%= u.name %></li>
-    <br>
-    <li>Avatar:
+      <li><%= image_tag(u.avatar.thumb.url, alt: 'No Image', class: "friend_avatar") %></li>
+
+      <li><%= u.name %></li>
       <br>
-      <%= image_tag(u.avatar.thumb.url, alt: 'No Image') %></li>
       <br>
 
       <li>Job: <%= u.job %></li>
@@ -24,12 +24,16 @@
 
       <% else %>
 
-      <%= link_to("Add this person as a friend", friends_path(friend_id: u.id), :method => :post) %>
+      <%= link_to("Add #{u.name} as a friend!", friends_path(friend_id: u.id), :method => :post) %>
 
       <% end %>
-
-    <hr>
-    <% end %>
+      <% end %>
     </ul>
-    <% end %>
-  </p>
+  </div>
+  
+  <% end %>
+
+  <section class="row">
+  </section>
+
+</p>

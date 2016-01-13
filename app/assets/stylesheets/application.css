@@ -14,17 +14,22 @@
  *= require_self
  */
 
+ body {
+   background-color: rgb(223,223,223);
+ }
+
  nav {
    background-color: rgb(38, 45, 66);
    height: 65px;
    line-height: 65px;
-   padding-bottom: 5px;
+   /*padding-bottom: 5px;*/
  }
 
  nav ul {
    list-style-type: none;
    padding-left: 0px;
    margin: 0;
+   color: white;
    /*line-height: 65px;*/
  }
 
@@ -36,8 +41,24 @@
  nav ul li a {
    text-decoration: none;
    color: white;
-   font-size: 12px;
+   font-size: 18px;
    font-weight: 100;
+ }
+
+ nav div ul li img {
+   border-radius: 100%;
+ }
+
+ main h1 {
+   text-align: center;
+ }
+
+ div ul {
+   list-style: none;
+ }
+
+ div ul li {
+   text-align: left;
  }
 
 /* header {
@@ -57,15 +78,20 @@
 
  .go-left {
    float: left;
-   line-height: 65px;
-   height: 65px;
+   /*line-height: 65px;*/
+   /*height: 65px;*/
  }
 
- .login a {
+ nav img {
+   float: left;
+   padding-left: 15px;
+ }
+
+ .go-left a {
    color: white;
  }
 
- .login a:visited {
+ .go-left a:visited {
    color: white;
  }
 
@@ -84,7 +110,7 @@
  /* GRID FRAMEWORK */
 
  .container {
-   width: 70%;
+   width: 80%;
    margin: 0 auto;
    /*Automatically centres.*/
  }
@@ -101,6 +127,8 @@
    margin-right: -4px;
    /*Inline-block has a 4px margin on the right side, so will push grid combinations that hit 100% onto a new line. Manually removing this margin will let them take up the entire line. Even separating the div tags in the html adds whitespace.*/
    padding: 0 10px;
+   margin-bottom: 5px;
+   margin-left: 1px;
    box-sizing: border-box;
    /* Changes how the element box operates: contains everything within this element. Makes the two 10px padding part of the 50% width specified by the class (grid 6). Maintains the padding and margin but eats into the width rather than adding it on top (i.e. 50% + padding + margin). */
  }
@@ -119,6 +147,20 @@
 
  .grid-4 {
    width: 33.333333%;
+   border: 2px solid slategrey;
+   border-radius: 25px;
+/*   text-align: center;
+   padding-right: 50px; */
+ }
+
+ .grid-4 ul li a {
+   text-align: center;
+ }
+
+ .grid-4 .friend_avatar {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
  }
 
  .grid-5 {
