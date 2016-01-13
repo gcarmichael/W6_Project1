@@ -1,18 +1,13 @@
 <h1>Photos</h1>
 <p>
   <% @photos.each do |photo| %>
-
-  <ul>
-    <li><%= photo.title %>
+  <div class="grid grid-4">
+    <ul>
+      <li><%= link_to image_tag(photo.image.thumb.url, alt: 'No Image'), photo_path(photo) %></li>
       <br>
+      <li>Title: <%= photo.title %></li>
       <br>
-      <% if photo.image %>
-      Image:<br>
-      <%= link_to image_tag(photo.image.thumb.url, alt: 'No Image'), photo_path(photo) %>
-      <br>
-      <% end %>
-
-      <%= photo.description if photo.description %></li>
+      <li>Description: <%= photo.description if photo.description %></li>
     </ul>
 
     <% if can? :update, photo %>
@@ -26,8 +21,8 @@
     <% if can? :destroy, photo %>
     <%= link_to("Delete Your Photo", photo_path(photo), method: :delete, data: {confirm: "Do you really want to delete this photo?"}) %>
     <% end %>
-
     <br>
-    <hr>
-    <% end %>
-  </p>
+    <br>
+  </div>
+  <% end %>
+</p>

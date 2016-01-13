@@ -7,11 +7,9 @@
       <% unless u.id == current_user.id %>
 
       <li><%= image_tag(u.avatar.thumb.url, alt: 'No Image', class: "friend_avatar") %></li>
-
+      <br>
       <li><%= u.name %></li>
       <br>
-      <br>
-
       <li>Job: <%= u.job %></li>
       <br>
       <li>Location: <%= u.location %></li>

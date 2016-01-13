@@ -1,38 +1,31 @@
 <h1>Friends</h1>
 <p>
   <% @sorted.each do |f| %>
-  <ul>
-  <!-- VAL MADE FUN OF ME -->
-    <% if f.friend_id == current_user.id %>
-    <li><%= @users.find(f.self_id).name %></li>
-    <br>
-    <li>Avatar:
+  <div class="grid grid-4">
+    <ul>
+      <!-- VAL MADE FUN OF ME -->
+      <% if f.friend_id == current_user.id %>
+      <li><%= image_tag(@users.find(f.self_id).avatar.page.url, alt: 'No Image') %></li>
       <br>
-      <%= image_tag(@users.find(f.self_id).avatar.page.url, alt: 'No Image') %></li>
+      <li><%= @users.find(f.self_id).name %></li>
       <br>
-
       <li>Job: <%= @users.find(f.self_id).job %></li>
       <br>
       <li>Location: <%= @users.find(f.self_id).location %></li>
 
       <% else %>
 
+      <li><%= image_tag(@users.find(f.friend_id).avatar.page, alt: 'No Image') %></li>
+      <br>
       <li><%= @users.find(f.friend_id).name %></li>
       <br>
-
-      <li>Avatar:
-        <br>
-        <%= image_tag(@users.find(f.friend_id).avatar.page, alt: 'No Image') %></li>
-        <br>
-
-        <li>Job: <%= @users.find(f.friend_id).job %></li>
-        <br>
-        <li>Location: <%= @users.find(f.friend_id).location %></li>
-        <% end %>
-        
-      </ul>
-
+      <li>Job: <%= @users.find(f.friend_id).job %></li>
       <br>
-      <hr>
+      <li>Location: <%= @users.find(f.friend_id).location %></li>
       <% end %>
-    </p>
+
+    </ul>
+
+  </div>
+  <% end %>
+</p>
