@@ -168,6 +168,10 @@
    margin-right: auto;
  }
 
+ .grid-4 ul li {
+   text-align: center;
+ }
+
  .grid-5 {
    width: 41.666666%;
  }

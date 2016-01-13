@@ -17,12 +17,12 @@
 
       <% if @friends.any?{|f| f.self_id == u.id || f.friend_id == u.id} %>
       <!-- Thanks Beth! -->
-      You and <%= u.name %> are already friends.
+      <li>You and <%= u.name %> are already friends.</li>
       <br>
 
       <% else %>
 
-      <%= link_to("Add #{u.name} as a friend!", friends_path(friend_id: u.id), :method => :post) %>
+      <li><%= link_to("Add #{u.name} as a friend!", friends_path(friend_id: u.id), :method => :post) %></li>
 
       <% end %>
       <% end %>
