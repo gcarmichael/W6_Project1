@@ -4,7 +4,9 @@ class UsersController < ApplicationController
 
   def index
     @friends = current_user.friendslist(current_user.id)
-    @users = User.all
+    #@users = User.all
+    @users = User.order(name: :asc)
+
   end
 
 end

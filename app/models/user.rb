@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   mount_uploader :avatar, UserAvatarUploader
 
-  validates :friendslist, uniqueness: true
+  #validates :friendslist, uniqueness: true
 
   has_many :friendships, :class_name => 'Friend', :foreign_key => 'self_id'
   has_many :inverse_friendships, :class_name => 'Friend', :foreign_key => 'friend_id'
@@ -28,4 +28,20 @@ class User < ActiveRecord::Base
     return @all_friends
   end
 
+  def self.display_name(friend_id, self_id, current_user,friend)
+    #current user id (logged in person)
+    #compare with the friend_id and self_id
+    #whcihever it matches, take the opposite
+    result = ""
+    compare_id = current_user.id
+    same_as_friend = compare_id == friend_id
+    same_as_self = compare_id == self_id
+    #binding.pry
+    if(same_as_self)
+      result = friend.name
+    else
+      result = User.find(self_id).name
+    end
+
+  end
 end

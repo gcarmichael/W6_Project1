@@ -1,11 +1,11 @@
 <h1>Friends</h1>
 <p>
-
-  <% @friends.each do |f| %>
+  <% @sorted.each do |f| %>
   <ul>
 
     <% #unless @users.friendship.self_id == @user.inverse_friendship.friend_id %>
-
+    <%= f.friend_id %>
+    <%= f.self_id %>
     <% if f.friend_id == current_user.id %>
     <li><%= @users.find(f.self_id).name %></li>
     <br>
